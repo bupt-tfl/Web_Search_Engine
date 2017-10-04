@@ -1,0 +1,38 @@
+by fengliang tan(ft705)
+
+data structure:
+Html_Page:
+attributes:
+  page_url,
+  to_pages(point to other page), 
+  page_rank, page_info(timestamp & page_size & estimate page_rank)
+
+Graph:
+attrbitues:
+  nodes(a list of nodes containing pages)
+  node_id(unique id for each node)
+  q = 0.85 ( 1-q was the jump probability)
+functions:
+  add_node( add a node into graph)
+  matrix_for_graph( make a transition matrix for graph)
+  cal_page_rank( calculate page_ranks)
+  update_page_rank( update page_rank for nodes)
+
+Web_Crawler:
+attributes:
+  page_queue( priority queue to store uncrawled pages)
+  visited_pages( list of visited url)
+  graph( graph structure to maintain pages)
+funtions:
+  crawl_html_page( open an url, return html)
+  is_valid_url( to deal with .png or other url)
+  get_start_page( given keywords, get start page from google)
+  bfs_crawler( bfs crawling page, have parameter of 1) limit - largest number of
+url to crawl in a html_page  2) max_page_number - the maximum pages the bsf
+crawler will crawl)
+  write_page_info( write page info into a log file)
+
+1. implement all requird functions
+2. have methods dealing with leaks and sinks
+3. have methods dealing with inner networks using urljoin
+4. crawl 1000 pages using about 14 min
